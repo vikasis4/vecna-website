@@ -12,16 +12,18 @@ import { RxCross2 } from "react-icons/rx";
 import { useAppSelector } from "@/store/hooks";
 import { useNavbarScroll } from "./hooks/navbarScroll";
 import { navbarActions } from "./slice/navbarSlice";
+import useDimensions from "@/hooks/useDimensions";
 
 function Navbar() {
   const { isScrolled, isMenuOpen } = useAppSelector((state) => state.navbar);
   const { setIsMenuOpen } = navbarActions();
   useNavbarScroll();
+  const { isMobileView } = useDimensions();
 
   return (
     <>
       <div
-        className={`flex justify-between bg-background fixed w-full h-[60px] items-center font-[family-name:var(--font-geist-sans)] lg:px-4 px-2  ${
+        className={`flex justify-between bg-background fixed w-full h-[60px] items-center font-[family-name:var(--font-geist-sans)] px-4  ${
           isScrolled && "border-primary/10 border-b-[1px]"
         }`}
       >
@@ -40,13 +42,21 @@ function Navbar() {
             {variables.requestDemo}
           </Link>
           <p className="w-[1px] h-4 bg-gray-500/40" />
-          <Link href="#" className="text-md font-medium">
+          <Link href="#" className={`text-md font-medium`}>
             {variables.login}
           </Link>
           <Button variant="default" size="sm">
             {variables.signup}
           </Button>
         </div>
+        <Button
+          variant="outline"
+          className={`${
+            isMenuOpen && isMobileView ? "fixed bottom-[20] left-1/2 -translate-x-1/2 h-[40px] w-[90%]" : "hidden"
+          } text-md font-medium`}
+        >
+          {variables.login}
+        </Button>
 
         {/* menu */}
         {isMenuOpen ? (

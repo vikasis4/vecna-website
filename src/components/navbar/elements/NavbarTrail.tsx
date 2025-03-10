@@ -1,26 +1,50 @@
+"use client";
 import React from "react";
 
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import Link from "next/link";
 import navbarTrailLinks from "@/config/navbar/navbarTrailLinks";
 import variables from "@/components/navbar/variables";
+import { useAppSelector } from "@/store/hooks";
+import { navbarActions } from "../slice/navbarSlice";
+import useDimensions from "@/hooks/useDimensions";
 
 function NavbarTrail() {
+  const { trailIndex, isMenuOpen } = useAppSelector((state) => state.navbar);
+  const { setTrailIndex } = navbarActions();
+  const { isMobileView } = useDimensions();
+
   return (
-    <section className="lg:flex hidden justify-center items-center gap-4 font-sans">
+    <section
+      className={`lg:flex w-full h-[calc(100vh-120px)] lg:h-full lg:w-max px-4 lg:px-0 right-0 ${
+        isMenuOpen ? "fixed block" : "hidden"
+      } lg:relative top-[60px] lg:top-0 justify-start lg:justify-center items-center gap-4 font-sans`}
+    >
       {navbarTrailLinks.map(({ label, submenu }, index) => {
+        const isTrailOpen = trailIndex === index;
         return (
           <ul
             key={index}
-            className={`hover:bg-gray-200/60 relative cursor-pointer flex justify-center px-2 py-1 rounded-md items-center gap-1 font-medium hover:text-primary transition-colors duration-150 group`}
+            onClick={() => {
+              isMobileView && submenu && setTrailIndex(isTrailOpen ? -1 : index);
+            }}
+            className={`hover:bg-gray-200/60 relative border-t-[2px] border-gray-200/60 lg:border-none cursor-pointer flex flex-col lg:flex-row lg:justify-center justify-start px-2 py-4 lg:py-1 lg:rounded-md items-start lg:items-center gap-1 font-medium hover:text-primary transition-colors duration-150 group`}
           >
-            <p>{label}</p>
-            {submenu && (
-              <MdOutlineKeyboardArrowDown className="text-xs transition-all duration-200 group-hover:rotate-180" />
-            )}
+            <div className="flex justify-center items-center gap-2">
+              <p>{label}</p>
+              {submenu && (
+                <MdOutlineKeyboardArrowDown className={`text-xs transition-all duration-200 ${isTrailOpen && "rotate-180"} group-hover:rotate-180`} />
+              )}
+            </div>
 
             {/* Dropdown Submenu */}
-            <ol className="absolute top-full left-0 min-w-max bg-background rounded-md shadow-md py-2 z-50 transition-all duration-200 transform translate-y-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+            <ol
+              className={`min-w-max bg-background rounded-md lg:shadow-md py-2 z-50 lg:transition-all lg:duration-200 transform   ${
+                isTrailOpen
+                  ? "visible opacity-100"
+                  : "invisible left-0 absolute top-full opacity-0 translate-y-2"
+              } group-hover:opacity-100 group-hover:visible group-hover:translate-y-0`}
+            >
               {submenu &&
                 submenu.map(
                   ({ Icon, label, href, comingSoon, desc }, subIndex) => (
