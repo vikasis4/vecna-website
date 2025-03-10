@@ -8,11 +8,13 @@ import variables from "@/components/navbar/variables";
 import { useAppSelector } from "@/store/hooks";
 import { navbarActions } from "../slice/navbarSlice";
 import useDimensions from "@/hooks/useDimensions";
+import { useRouter } from "next/navigation";
 
 function NavbarTrail() {
   const { trailIndex, isMenuOpen } = useAppSelector((state) => state.navbar);
   const { setTrailIndex } = navbarActions();
   const { isMobileView } = useDimensions();
+  const router = useRouter();
 
   return (
     <section
@@ -20,20 +22,26 @@ function NavbarTrail() {
         isMenuOpen ? "fixed block" : "hidden"
       } lg:relative top-[60px] lg:top-0 justify-start lg:justify-center items-center gap-4 font-sans`}
     >
-      {navbarTrailLinks.map(({ label, submenu }, index) => {
+      {navbarTrailLinks.map(({ label, submenu, href }, index) => {
         const isTrailOpen = trailIndex === index;
         return (
           <ul
             key={index}
             onClick={() => {
-              isMobileView && submenu && setTrailIndex(isTrailOpen ? -1 : index);
+              if (isMobileView && submenu)
+                setTrailIndex(isTrailOpen ? -1 : index);
+              router.push(href);
             }}
             className={`hover:bg-gray-200/60 relative border-t-[2px] border-gray-200/60 lg:border-none cursor-pointer flex flex-col lg:flex-row lg:justify-center justify-start px-2 py-4 lg:py-1 lg:rounded-md items-start lg:items-center gap-1 font-medium hover:text-primary transition-colors duration-150 group`}
           >
             <div className="flex justify-center items-center gap-2">
               <p>{label}</p>
               {submenu && (
-                <MdOutlineKeyboardArrowDown className={`text-xs transition-all duration-200 ${isTrailOpen && "rotate-180"} group-hover:rotate-180`} />
+                <MdOutlineKeyboardArrowDown
+                  className={`text-xs transition-all duration-200 ${
+                    isTrailOpen && "rotate-180"
+                  } group-hover:rotate-180`}
+                />
               )}
             </div>
 

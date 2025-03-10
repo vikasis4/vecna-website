@@ -49,6 +49,8 @@ function Navbar() {
             {variables.signup}
           </Button>
         </div>
+
+        {/* login and logout for mobile */}
         <Button
           variant="outline"
           className={`${
