@@ -1,7 +1,21 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  reactStrictMode: false,
+  swcMinify: true,
+  experimental: {
+    outputStandalone: true,
+  },
+  images: {
+    domains: ["localhost", "picsum.photos", "i.pravatar.cc"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+      },
+    ],
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

@@ -1,0 +1,25 @@
+version: "2.2"
+
+services:
+  vecna:
+    image: vikasdev4046/vecna-website:2.0
+    ports:
+      - "3000:3000"
+    networks:
+      - "vecna-network"
+
+  nginx:
+    image: nginx:1.27.4-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/data/nginx/nginx.conf:/etc/nginx/nginx.conf"
+      - "/data/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf"
+      - "/etc/letsencrypt:/etc/letsencrypt"
+    networks:
+      - "vecna-network"
+
+networks:
+  vecna-network:
+    driver: bridge

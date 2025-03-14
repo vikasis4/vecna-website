@@ -1,8 +1,8 @@
-import RootHome from "@/components/home/RootHome";
+import LandingPage from "@/modules/landingPage/ui/LandingPage";
 import React from "react";
 
 function Home() {
-  return <RootHome />;
+  return <LandingPage />;
 }
 
 export default Home;
