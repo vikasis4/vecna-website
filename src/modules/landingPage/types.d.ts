@@ -4,3 +4,6 @@ export type landingPageTyep = {
     carosoulNo: carosoulNoType;
   };
 };
+
+import { IconType } from "react-icons";
+export type itemDataType = [IconType, { title: string; desc: string }];
