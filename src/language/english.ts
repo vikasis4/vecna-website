@@ -99,6 +99,24 @@ const en_us = {
       PROJECTS: "Projects",
       TEAMS: "Teams",
     },
+    sectionTwo: {
+      title: "Find everything. Instantly.",
+      desc: "No more endless searching. Our built-in AI finds what you're looking for, whether its stored in Notion or one of your other apps.",
+      link: "Explore knowledge management ->",
+      team: {
+        title: "Teamspaces",
+        desc: "Dedicated spaces for every team & project",
+      },
+      integ: {
+        title: "Integrations",
+        desc: "Connected to all your other tools.",
+      },
+      ai: {
+        title: "Just ask AI",
+        desc: "Trusted answers across your apps.",
+      },
+      replace: "Replaces",
+    },
   },
 };
 
