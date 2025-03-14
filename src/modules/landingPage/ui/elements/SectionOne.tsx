@@ -13,7 +13,7 @@ function SectionOne() {
 
   return (
     <main className="mt-8 mb-8 relative z-0">
-      <div className="relative w-full h-[400px] md:h-auto overflow-hidden md:overflow-visible border border-gray-200/80 shadow-md shadow-gray-400/80 rounded-md">
+      <div className="relative w-full min-h-[400px] md:min-h-auto aspect-[16/8] overflow-hidden md:overflow-visible border border-gray-200/80 shadow-md shadow-gray-400/80 rounded-md">
         <AnimatePresence mode="wait">
           <motion.div
             key={imgNumber}

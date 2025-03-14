@@ -44,13 +44,14 @@ function SectionTwo() {
           ))}
         </section>
       </header>
-      <footer className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden mt-6 lg:mt-8">
+      <footer className="relative w-full min-h-[300px] sm:min-h-[400px] lg:min-h-auto lg:h-auto overflow-hidden mt-6 lg:mt-8 flex justify-center">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover absolute top-0 left-0 object-left rounded-lg"
+          className="w-full h-full lg:w-auto lg:max-w-full lg:h-auto absolute top-0 left-0 lg:relative rounded-lg 
+               object-cover object-left sm:object-cover lg:object-contain"
           src="https://www.notion.com/front-static/pages/product/super-duper/organize/organize-screen-desktop.mp4"
         />
       </footer>
