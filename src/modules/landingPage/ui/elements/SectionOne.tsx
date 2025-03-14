@@ -2,7 +2,6 @@
 import { useAppSelector } from "@/store/hooks";
 import React from "react";
 import useCarosoul from "../../hooks/useCarosoul";
-import useDimensions from "@/hooks/useDimensions";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 
@@ -11,7 +10,6 @@ function SectionOne() {
     (state) => state.landingPage.sectionone.carosoulNo
   );
   useCarosoul();
-  const { isMobileView } = useDimensions();
 
   return (
     <main className="mt-8 mb-8 relative z-0">
@@ -43,7 +41,7 @@ function SectionOne() {
 
 import { useLandingPageActions } from "../../slice/landingPageSlice";
 import { carosoulNoType } from "../../types";
-import { boxData } from "../../config/variables";
+import { secOneBoxData } from "../../config";
 
 function FeaturesName() {
   const imgNumber = useAppSelector(
@@ -53,7 +51,7 @@ function FeaturesName() {
 
   return (
     <main className="flex flex-wrap justify-center items-center gap-2 lg:gap-4 mt-8">
-      {boxData.map(([number, name, Icon]) => (
+      {secOneBoxData.map(([number, name, Icon]) => (
         <div
           key={number as React.Key}
           onClick={() => setCarosoulNo(number as carosoulNoType)}

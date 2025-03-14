@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { navbarSliceTypes } from "../types/navbarTypes";
+import { navbarSliceTypes } from "../types";
 import { useAppDispatch } from "@/store/hooks";
 
 const initialState: navbarSliceTypes = {

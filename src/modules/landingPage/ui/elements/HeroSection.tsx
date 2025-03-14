@@ -1,31 +1,32 @@
 import React from "react";
-import variables from "../../config/variables";
 import { Button } from "@/packages/ui/button";
 import getImageData, { imageType } from "@/config/imagesLink";
 import Image from "next/image";
+import language from "@/language";
+const {
+  home: { hero: CONST },
+} = language;
 
 function HeroSection() {
   return (
     <main className=" flex flex-col lg:flex-row gap-8">
       <section className="flex justify-center items-start flex-col font-sans gap-6 mt-4">
-        <h1 className="font-bold text-5xl lg:text-7xl">
-          {variables["hero-title"]}
-        </h1>
-        <p className="font-medium text-xl">{variables["hero-desc"]}</p>
+        <h1 className="font-bold text-5xl lg:text-7xl">{CONST.TITLE}</h1>
+        <p className="font-medium text-xl">{CONST.DESC}</p>
         <div className="flex flex-col lg:flex-row justify-start items-center w-full gap-2">
           <Button variant="default" className="w-full lg:w-max bg-blue-600/80">
-            {variables.signup}
+            {CONST.SIGNUP}
           </Button>
           <Button
             variant="outline"
             className="w-full lg:w-max border-blue-600/80"
           >
-            {variables.demo}
+            {CONST.DEMO}
           </Button>
         </div>
         <blockquote>
           <p className="text-md mt-6 font-medium text-black/70">
-            {variables["hero-trust"]}
+            {CONST.TRUST}
           </p>
           <ChannelSection />
         </blockquote>

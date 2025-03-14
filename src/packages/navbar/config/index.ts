@@ -3,77 +3,76 @@ import { PiProjectorScreenFill } from "react-icons/pi";
 import { IoMail } from "react-icons/io5";
 import { RiDashboardHorizontalFill } from "react-icons/ri";
 import { FaCalendar } from "react-icons/fa";
+import language from "@/language";
+const {
+  nav: { trail: CONST },
+} = language;
 
-const navbarTrailLinks = [
+const navRoutes = [
   {
-    label: "Features",
+    label: CONST.features.label,
     href: "/",
     submenu: [
       {
         Icon: FaWandMagicSparkles,
-        label: "AI Assistance",
+        ...{ ...CONST.features.ai },
         href: "/features/ai",
         comingSoon: false,
-        desc: "Leverage AI-powered tools",
       },
       {
         Icon: PiProjectorScreenFill,
-        label: "Projects",
+        ...{ ...CONST.features.project },
         href: "/features/projects",
         comingSoon: false,
-        desc: "Manage and track your projects",
       },
       {
         Icon: IoMail,
-        label: "Mail",
+        ...{ ...CONST.features.mail },
         href: "/features/mails",
         comingSoon: true,
-        desc: "Stay connected with built-in email",
       },
       {
         Icon: RiDashboardHorizontalFill,
-        label: "Integration",
+        ...{ ...CONST.features.intigration },
         href: "/features/integration",
         comingSoon: false,
-        desc: "Seamlessly integrate your channel",
       },
       {
         Icon: FaCalendar,
-        label: "Calendar",
+        ...{ ...CONST.features.calendar },
         href: "/features/calendar",
         comingSoon: false,
-        desc: "Events, schedule and reminders",
       },
     ],
   },
   {
-    label: "Teams",
+    label: CONST.teams.label,
     href: "/",
     submenu: [
       {
         Icon: null,
-        label: "Education",
+        label: CONST.teams.education,
         href: "/teams/education",
         comingSoon: false,
         desc: "",
       },
       {
         Icon: null,
-        label: "Entertainment",
+        label: CONST.teams.entertainment,
         href: "/teams/entertainment",
         comingSoon: false,
         desc: "",
       },
       {
         Icon: null,
-        label: "Documentary",
+        label: CONST.teams.documentry,
         href: "/teams/documentary",
         comingSoon: false,
         desc: "",
       },
       {
         Icon: null,
-        label: "Podcast",
+        label: CONST.teams.podcast,
         href: "/teams/podcast",
         comingSoon: false,
         desc: "",
@@ -81,10 +80,10 @@ const navbarTrailLinks = [
     ],
   },
   {
-    label: "Pricing",
+    label: CONST.pricing.label,
     href: "/pricing",
     submenu: null,
   },
 ];
 
-export default navbarTrailLinks;
+export default navRoutes;

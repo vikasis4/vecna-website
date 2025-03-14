@@ -2,17 +2,18 @@
 import { appName } from "@/config/metadata";
 import Image from "next/image";
 import React from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import Link from "next/link";
-import variables from "@/packages/navbar/variables";
 import NavbarTrail from "./elements/NavbarTrail";
 import getImageData from "@/config/imagesLink";
 import { LuMenu } from "react-icons/lu";
 import { RxCross2 } from "react-icons/rx";
 import { useAppSelector } from "@/store/hooks";
-import { useNavbarScroll } from "./hooks/navbarScroll";
-import { useNavbarActions } from "./slice/navbarSlice";
+import { useNavbarScroll } from "../hooks/navbarScroll";
+import { useNavbarActions } from "../slice/navbarSlice";
 import useDimensions from "@/hooks/useDimensions";
+import language from "@/language";
+const { nav: CONST } = language;
 
 function Navbar() {
   const { isScrolled, isMenuOpen } = useAppSelector((state) => state.navbar);
@@ -39,14 +40,14 @@ function Navbar() {
         {/* login and signup */}
         <div className="hidden lg:flex justify-center items-center gap-4">
           <Link href="#" className="text-md font-medium">
-            {variables.requestDemo}
+            {CONST.DEMO}
           </Link>
           <p className="w-[1px] h-4 bg-gray-500/40" />
           <Link href="#" className={`text-md font-medium`}>
-            {variables.login}
+            {CONST.LOGIN}
           </Link>
           <Button variant="default" size="sm">
-            {variables.signup}
+            {CONST.SIGNUP}
           </Button>
         </div>
 
@@ -54,10 +55,12 @@ function Navbar() {
         <Button
           variant="outline"
           className={`${
-            isMenuOpen && isMobileView ? "fixed bottom-[20] left-1/2 -translate-x-1/2 h-[40px] w-[90%]" : "hidden"
+            isMenuOpen && isMobileView
+              ? "fixed bottom-[20] left-1/2 -translate-x-1/2 h-[40px] w-[90%]"
+              : "hidden"
           } text-md font-medium`}
         >
-          {variables.login}
+          {CONST.LOGIN}
         </Button>
 
         {/* menu */}

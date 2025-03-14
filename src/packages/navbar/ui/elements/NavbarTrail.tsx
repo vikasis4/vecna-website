@@ -3,12 +3,13 @@ import React from "react";
 
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import Link from "next/link";
-import navbarTrailLinks from "@/config/navbar/navbarTrailLinks";
-import variables from "@/packages/navbar/variables";
+import navbarTrailLinks from "../../config/index";
 import { useAppSelector } from "@/store/hooks";
-import { useNavbarActions } from "../slice/navbarSlice";
+import { useNavbarActions } from "../../slice/navbarSlice";
 import useDimensions from "@/hooks/useDimensions";
 import { useRouter } from "next/navigation";
+import language from "@/language";
+const { nav: CONST } = language;
 
 function NavbarTrail() {
   const { trailIndex, isMenuOpen } = useAppSelector((state) => state.navbar);
@@ -35,7 +36,7 @@ function NavbarTrail() {
             className={`hover:bg-gray-200/60 relative border-t-[2px] border-gray-200/60 lg:border-none cursor-pointer flex flex-col lg:flex-row lg:justify-center justify-start px-2 py-4 lg:py-1 lg:rounded-md items-start lg:items-center gap-1 font-medium hover:text-primary transition-colors duration-150 group`}
           >
             <div className="flex justify-center items-center gap-2">
-              <p>{label}</p>
+              <p>{label as string}</p>
               {submenu && (
                 <MdOutlineKeyboardArrowDown
                   className={`text-xs transition-all duration-200 ${
@@ -72,7 +73,7 @@ function NavbarTrail() {
                           </h1>
                           {comingSoon && (
                             <span className="text-xs text-black/80 bg-gray-200/60 rounded-md px-2 py-[1.4px]">
-                              {variables.comingSoon}
+                              {CONST.SOON}
                             </span>
                           )}
                         </section>
