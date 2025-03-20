@@ -14,10 +14,11 @@ import language from "@/language";
 const { footer: CONST } = language;
 
 export default function Footer() {
+  const isAuthenticated = !true;
+  if (isAuthenticated) return null;
   return (
     <footer className="bg-white border-t">
       <div className="container mx-auto px-6 py-10">
-        
         {/* Logo and Socials */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div className="flex items-center space-x-3">

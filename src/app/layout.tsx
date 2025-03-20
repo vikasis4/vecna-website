@@ -5,6 +5,7 @@ import { homeMetaData } from "@/config/metadata";
 import Navbar from "@/packages/navbar/ui/Navbar";
 import StoreProvider from "@/store/storeProvider";
 import Footer from "@/packages/footer/ui/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         <StoreProvider>
           <Navbar />
           {children}
+          <Toaster />
           <Footer />
         </StoreProvider>
       </body>

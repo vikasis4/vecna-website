@@ -2,6 +2,11 @@ import React from "react";
 import HeroSection from "./elements/HeroSection";
 import SectionOne from "./elements/SectionOne";
 import SectionTwo from "./elements/SectionTwo";
+import PricingHome from "./elements/Pricings";
+import Testimonial from "./elements/Testimonial";
+import { ComboboxDemo } from "../../../packages/Filter";
+import TableUser from "@/packages/Table";
+import { DefaultMenuDemo } from "@/packages/Menu";
 
 function LandingPage() {
   return (
@@ -9,6 +14,13 @@ function LandingPage() {
       <HeroSection />
       <SectionOne />
       <SectionTwo />
+      <PricingHome />
+      <Testimonial />
+      {/* //-------------- */}
+      <ComboboxDemo />
+      <TableUser />
+      <DefaultMenuDemo />
+      
     </div>
   );
 }

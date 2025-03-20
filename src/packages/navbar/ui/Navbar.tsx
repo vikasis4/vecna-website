@@ -21,10 +21,13 @@ function Navbar() {
   useNavbarScroll();
   const { isMobileView } = useDimensions();
 
+  const isAuthenticated = !true;
+  if (isAuthenticated) return null;
+
   return (
     <>
       <div
-        className={`flex justify-between bg-background fixed z-10 w-full h-[60px] items-center font-[family-name:var(--font-geist-sans)] px-4  ${
+        className={`flex justify-between bg-background fixed z-100 w-full h-[60px] items-center font-[family-name:var(--font-geist-sans)] px-4  ${
           isScrolled && "border-primary/10 border-b-[1px]"
         }`}
       >
