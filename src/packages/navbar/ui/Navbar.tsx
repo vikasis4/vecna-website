@@ -2,7 +2,7 @@
 import { appName } from "@/config/metadata";
 import Image from "next/image";
 import React from "react";
-import { Button } from "../../ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import NavbarTrail from "./elements/NavbarTrail";
 import getImageData from "@/config/imagesLink";
@@ -21,7 +21,7 @@ function Navbar() {
   useNavbarScroll();
   const { isMobileView } = useDimensions();
 
-  const isAuthenticated = !true;
+  const isAuthenticated = true;
   if (isAuthenticated) return null;
 
   return (
@@ -34,7 +34,7 @@ function Navbar() {
         {/* logo and trail */}
         <div className="flex justify-center items-center gap-16">
           <div className="flex justify-center items-center gap-2 ">
-            <Image {...getImageData("logo", 30)} />
+            <Image {...getImageData("logo", 30)} alt="" />
             <h1 className="font-semibold text-xl">{appName}</h1>
           </div>
           <NavbarTrail />

@@ -19,6 +19,16 @@ const nextConfig = {
         hostname: "images.unsplash.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "www.upwork.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "imgs.search.brave.com",
+        port: "",
+      },
     ],
   },
 };

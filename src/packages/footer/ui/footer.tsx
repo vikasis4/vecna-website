@@ -1,4 +1,4 @@
-import { Button } from "@/packages/ui/button";
+import { Button } from "@/components/ui/button";
 import { LuGlobe } from "react-icons/lu";
 import {
   FaInstagram,
@@ -14,7 +14,7 @@ import language from "@/language";
 const { footer: CONST } = language;
 
 export default function Footer() {
-  const isAuthenticated = !true;
+  const isAuthenticated = true;
   if (isAuthenticated) return null;
   return (
     <footer className="bg-white border-t">
@@ -22,7 +22,7 @@ export default function Footer() {
         {/* Logo and Socials */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div className="flex items-center space-x-3">
-            <Image {...getImageData("logo", 40)} />
+            <Image  {...getImageData("logo", 40)} alt="" />
             <span className="text-xl font-bold"> {appName}</span>
           </div>
           <div className="flex space-x-4 mt-4 md:mt-0">

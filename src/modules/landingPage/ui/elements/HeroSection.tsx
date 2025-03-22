@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@/packages/ui/button";
+import { Button } from "@/components/ui/button";
 import getImageData, { imageType } from "@/config/imagesLink";
 import Image from "next/image";
 import language from "@/language";
@@ -32,7 +32,7 @@ function HeroSection() {
         </blockquote>
       </section>
       <section className="flex justify-center w-full items-center">
-        <Image {...getImageData("hero", 600)} />
+        <Image {...getImageData("hero", 600)} alt="" />
       </section>
     </main>
   );
@@ -50,7 +50,7 @@ function ChannelSection() {
             key={logoData.alt}
             className="flex justify-center lg:flex-col items-center gap-1 pr-2"
           >
-            <Image className="rounded-md h-[40px] w-[40px]" {...logoData} />
+            <Image className="rounded-md h-[40px] w-[40px]" {...logoData} alt="" />
             <h2 className="font-medium text-sm">{logoData.alt}</h2>
           </div>
         );

@@ -55,9 +55,9 @@ export function ExpandableTabs({
   onChange,
 }: ExpandableTabsProps) {
   const [selected, setSelected] = React.useState<number | null>(null);
-  const outsideClickRef = React.useRef<any>(null);
+  const outsideClickRef = React.useRef<HTMLElement>(null);
 
-  useOnClickOutside(outsideClickRef, () => {
+  useOnClickOutside(outsideClickRef as React.RefObject<HTMLDivElement>, () => {
     setSelected(null);
     onChange?.(null);
   });
@@ -73,7 +73,7 @@ export function ExpandableTabs({
 
   return (
     <div
-      ref={outsideClickRef}
+      ref={outsideClickRef as React.RefObject<HTMLDivElement>}
       className={cn(
         "flex flex-wrap items-center gap-2 rounded-2xl border bg-background p-1 shadow-sm",
         className

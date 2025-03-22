@@ -5,8 +5,8 @@ import SectionTwo from "./elements/SectionTwo";
 import PricingHome from "./elements/Pricings";
 import Testimonial from "./elements/Testimonial";
 import { ComboboxDemo } from "../../../packages/Filter";
-import TableUser from "@/packages/Table";
-import { DefaultMenuDemo } from "@/packages/Menu";
+// import TableUser from "@/packages/Table";
+// import { DefaultMenuDemo } from "@/packages/Menu";
 
 function LandingPage() {
   return (
@@ -18,8 +18,8 @@ function LandingPage() {
       <Testimonial />
       {/* //-------------- */}
       <ComboboxDemo />
-      <TableUser />
-      <DefaultMenuDemo />
+      {/* <TableUser />
+      <DefaultMenuDemo /> */}
       
     </div>
   );

@@ -1,151 +1,67 @@
 "use client";
+import SessionLayout from "@/components/ui/SessionLayout";
+import { UserChatCard } from "@/modules/basic/chat/ui/elements/UserChatCard";
+import { ChatBox } from "@/packages/chat/ui/ChatBox";
+import React from "react";
 
-import { useState, FormEvent } from "react";
-import { Paperclip, Mic, CornerDownLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  ChatBubble,
-  ChatBubbleAvatar,
-  ChatBubbleMessage,
-} from "@/components/ui/chat-bubble";
-import { ChatMessageList } from "@/components/ui/chat-message-list";
-import { ChatInput } from "@/components/ui/chat-input";
+const data = [
+  {
+    color: "green",
+    description: "What's the update on our project?",
+    Icon: "https://www.upwork.com/profile-portraits/c1NmGFdbSs2QpPBH4HIs1fx4eK0XNy-jR9YLzZyP-Qz-tJ3zGFAQLfq9kEW8GHDBz_",
+    name: "Vikas",
+    time: "12m ago",
+    key: "123",
+  },
+  {
+    color: "blue",
+    description: "Welcome to the platform! Let us know if you need help.",
+    Icon: "",
+    name: "Anjali",
+    time: "25m ago",
+    key: "124",
+  },
+  {
+    color: "red",
+    description: "You have a pending message from support.",
+    Icon: "",
+    name: "Rahul",
+    time: "1h ago",
+    key: "125",
+  },
+  {
+    color: "purple",
+    description: "Your subscription has been updated successfully.",
+    Icon: "",
+    name: "Sanya",
+    time: "2h ago",
+    key: "126",
+  },
+  {
+    color: "gold",
+    description: "Reminder: Meeting scheduled for tomorrow at 10 AM.",
+    Icon: "",
+    name: "Aman",
+    time: "3h ago",
+    key: "127",
+  },
+];
 
-export function ChatPage() {
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      content: "Hello! How can I help you today?",
-      sender: "ai",
-    },
-    {
-      id: 2,
-      content: "I have a question about the component library.",
-      sender: "user",
-    },
-    {
-      id: 3,
-      content: "Sure! I'd be happy to help. What would you like to know?",
-      sender: "ai",
-    },
-  ]);
-
-  const [input, setInput] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    setMessages((prev) => [
-      ...prev,
-      {
-        id: prev.length + 1,
-        content: input,
-        sender: "user",
-      },
-    ]);
-    setInput("");
-    setIsLoading(true);
-
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: prev.length + 1,
-          content: "This is an AI response to your message.",
-          sender: "ai",
-        },
-      ]);
-      setIsLoading(false);
-    }, 1000);
-  };
-
-  const handleAttachFile = () => {
-    //
-  };
-
-  const handleMicrophoneClick = () => {
-    //
-  };
-
+function ChatPage() {
   return (
-    <div className="h-[400px] border bg-background rounded-lg flex flex-col">
-      <div className="flex-1 overflow-hidden">
-        <ChatMessageList>
-          {messages.map((message) => (
-            <ChatBubble
-              key={message.id}
-              variant={message.sender === "user" ? "sent" : "received"}
-            >
-              <ChatBubbleAvatar
-                className="h-8 w-8 shrink-0"
-                src={
-                  message.sender === "user"
-                    ? "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&q=80&crop=faces&fit=crop"
-                    : "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&q=80&crop=faces&fit=crop"
-                }
-                fallback={message.sender === "user" ? "US" : "AI"}
-              />
-              <ChatBubbleMessage
-                variant={message.sender === "user" ? "sent" : "received"}
-              >
-                {message.content}
-              </ChatBubbleMessage>
-            </ChatBubble>
+    <SessionLayout>
+      <main className="flex justify-center items-start gap-4 h-full">
+        <section className="w-full h-full">
+          <ChatBox />
+        </section>
+        <section className="flex flex-col gap-2">
+          {data.map((user) => (
+            <UserChatCard key={user.key} data={user} />
           ))}
-
-          {isLoading && (
-            <ChatBubble variant="received">
-              <ChatBubbleAvatar
-                className="h-8 w-8 shrink-0"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&q=80&crop=faces&fit=crop"
-                fallback="AI"
-              />
-              <ChatBubbleMessage isLoading />
-            </ChatBubble>
-          )}
-        </ChatMessageList>
-      </div>
-
-      <div className="p-4 border-t">
-        <form
-          onSubmit={handleSubmit}
-          className="relative rounded-lg border bg-background focus-within:ring-1 focus-within:ring-ring p-1"
-        >
-          <ChatInput
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message..."
-            className="min-h-12 resize-none rounded-lg bg-background border-0 p-3 shadow-none focus-visible:ring-0"
-          />
-          <div className="flex items-center p-3 pt-0 justify-between">
-            <div className="flex">
-              <Button
-                variant="ghost"
-                size="icon"
-                type="button"
-                onClick={handleAttachFile}
-              >
-                <Paperclip className="size-4" />
-              </Button>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                type="button"
-                onClick={handleMicrophoneClick}
-              >
-                <Mic className="size-4" />
-              </Button>
-            </div>
-            <Button type="submit" size="sm" className="ml-auto gap-1.5">
-              Send Message
-              <CornerDownLeft className="size-3.5" />
-            </Button>
-          </div>
-        </form>
-      </div>
-    </div>
+        </section>
+      </main>
+    </SessionLayout>
   );
 }
+
+export default ChatPage;

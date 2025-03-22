@@ -168,7 +168,7 @@ export const sideBarLinks = {
   basic: [
     {
       name: "Search",
-      url: "/session/workspace",
+      url: "/session/home",
       icon: Search,
     },
     {
@@ -183,7 +183,7 @@ export const sideBarLinks = {
     },
     {
       name: "Chats",
-      url: "/session/basic/chat",
+      url: "/session/chat",
       icon: MessageSquare,
     },
     {
