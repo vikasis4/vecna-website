@@ -13,16 +13,17 @@ import { useNavbarScroll } from "../hooks/navbarScroll";
 import { useNavbarActions } from "../slice/navbarSlice";
 import useDimensions from "@/hooks/useDimensions";
 import language from "@/language";
+import { usePathname } from "next/navigation";
 const { nav: CONST } = language;
 
 function Navbar() {
   const { isScrolled, isMenuOpen } = useAppSelector((state) => state.navbar);
   const { setIsMenuOpen } = useNavbarActions();
-  useNavbarScroll();
   const { isMobileView } = useDimensions();
+  useNavbarScroll();
 
-  const isAuthenticated = true;
-  if (isAuthenticated) return null;
+  const showNav = usePathname().split("/")[1] === "session" || false;
+  if (showNav) return null;
 
   return (
     <>

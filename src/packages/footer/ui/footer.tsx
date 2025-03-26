@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { LuGlobe } from "react-icons/lu";
 import {
@@ -11,11 +12,13 @@ import { appName } from "@/config/metadata";
 import getImageData from "@/config/imagesLink";
 import Image from "next/image";
 import language from "@/language";
+import { usePathname } from "next/navigation";
 const { footer: CONST } = language;
 
 export default function Footer() {
-  const isAuthenticated = true;
-  if (isAuthenticated) return null;
+  const showFooter = usePathname().split("/")[1] === "session" || false;
+  if (showFooter) return null;
+
   return (
     <footer className="bg-white border-t">
       <div className="container mx-auto px-6 py-10">

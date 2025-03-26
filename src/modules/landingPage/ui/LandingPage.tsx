@@ -4,7 +4,7 @@ import SectionOne from "./elements/SectionOne";
 import SectionTwo from "./elements/SectionTwo";
 import PricingHome from "./elements/Pricings";
 import Testimonial from "./elements/Testimonial";
-import { ComboboxDemo } from "../../../packages/Filter";
+// import { ComboboxDemo } from "../../../packages/Filter";
 // import TableUser from "@/packages/Table";
 // import { DefaultMenuDemo } from "@/packages/Menu";
 
@@ -17,7 +17,7 @@ function LandingPage() {
       <PricingHome />
       <Testimonial />
       {/* //-------------- */}
-      <ComboboxDemo />
+      {/* <ComboboxDemo /> */}
       {/* <TableUser />
       <DefaultMenuDemo /> */}
       

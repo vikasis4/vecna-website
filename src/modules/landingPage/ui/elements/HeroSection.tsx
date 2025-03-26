@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import getImageData, { imageType } from "@/config/imagesLink";
 import Image from "next/image";
 import language from "@/language";
+import Link from "next/link";
 const {
   home: { hero: CONST },
 } = language;
@@ -17,12 +18,14 @@ function HeroSection() {
           <Button variant="default" className="w-full lg:w-max bg-blue-600/80">
             {CONST.SIGNUP}
           </Button>
-          <Button
-            variant="outline"
-            className="w-full lg:w-max border-blue-600/80"
-          >
-            {CONST.DEMO}
-          </Button>
+          <Link href="/session/home" className="!cursor-pointer">
+            <Button
+              variant="outline"
+              className="w-full lg:w-max border-blue-600/80"
+            >
+              {CONST.DEMO}
+            </Button>
+          </Link>
         </div>
         <blockquote>
           <p className="text-md mt-6 font-medium text-black/70">
@@ -50,7 +53,11 @@ function ChannelSection() {
             key={logoData.alt}
             className="flex justify-center lg:flex-col items-center gap-1 pr-2"
           >
-            <Image className="rounded-md h-[40px] w-[40px]" {...logoData} alt="" />
+            <Image
+              className="rounded-md h-[40px] w-[40px]"
+              {...logoData}
+              alt=""
+            />
             <h2 className="font-medium text-sm">{logoData.alt}</h2>
           </div>
         );

@@ -143,58 +143,69 @@ export const sideBarLinks = {
       name: "Setting",
       url: "#",
       icon: Settings2,
+      ready:false
     },
     {
       name: "Resources",
       url: "#",
       icon: Folder,
+      ready:false
     },
     {
       name: "Invite User",
       url: "#",
       icon: UserRoundPlus,
+      ready:false
     },
     {
       name: "Events",
       url: "#",
       icon: Calendar,
+      ready:false
     },
     {
       name: "Billing",
       url: "#",
       icon: ReceiptText,
+      ready:false
     },
   ],
   basic: [
     {
       name: "Search",
-      url: "/session/home",
+      url: "#",
       icon: Search,
+      ready:false
     },
     {
       name: "Vecna AI",
       url: "#",
       icon: Brain,
+      ready:false
     },
     {
       name: "Home",
-      url: "#",
+      url: "/session/home",
       icon: House,
+      ready:true
     },
     {
       name: "Chats",
       url: "/session/chat",
       icon: MessageSquare,
+      ready:true
     },
     {
       name: "Email",
       url: "#",
       icon: Mail,
+      ready:false
     },
     {
       name: "Inbox",
       url: "#",
       icon: Inbox,
+      ready:false
     },
   ],
 };

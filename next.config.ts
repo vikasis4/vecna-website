@@ -5,6 +5,10 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     outputStandalone: true,
+    serverActions: {
+      allowedOrigins: ["localhost:3000","vecna.online","0.0.0.0:3000"],
+      allowedForwardedHosts: ["localhost:3000","vecna.online","0.0.0.0:3000"],
+    }
   },
   images: {
     domains: ["localhost", "picsum.photos", "i.pravatar.cc"],

@@ -91,7 +91,7 @@ const en_us = {
       DESC: "Write. Plan. Collaborate. With a little help from AI.",
       TRUST: "Trusted by channels",
       SIGNUP: "Sign up",
-      DEMO: "Request a demmo",
+      DEMO: "View demo dashboard",
     },
     sectionOne: {
       AI: "AI Master",

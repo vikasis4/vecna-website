@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 export function SideBarBread() {
-  const items = ["Platform", "Project", "Video"];
+  const items = ["Basic", "Home"];
 
   return (
     <Breadcrumb>

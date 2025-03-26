@@ -16,4 +16,4 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
-ENTRYPOINT [ "node","server.js" ]
+CMD [ "node","server.js" ,"--hostname", "0.0.0.0"]
