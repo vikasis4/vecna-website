@@ -1,10 +1,4 @@
-"use client";
-import SessionLayout from "@/components/ui/SessionLayout";
-import { UserChatCard } from "@/modules/basic/chat/ui/elements/UserChatCard";
-import { ChatBox } from "@/packages/chat/ui/ChatBox";
-import React from "react";
-
-const data = [
+export const chatDemoData = [
   {
     color: "green",
     description: "What's the update on our project?",
@@ -46,22 +40,3 @@ const data = [
     key: "127",
   },
 ];
-
-function ChatPage() {
-  return (
-    <SessionLayout>
-      <main className="flex justify-center items-start gap-4 h-full">
-        <section className="w-full h-full">
-          <ChatBox />
-        </section>
-        <section className="flex flex-col gap-2">
-          {data.map((user) => (
-            <UserChatCard key={user.key} data={user} />
-          ))}
-        </section>
-      </main>
-    </SessionLayout>
-  );
-}
-
-export default ChatPage;

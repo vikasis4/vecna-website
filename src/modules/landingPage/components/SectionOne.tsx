@@ -1,7 +1,7 @@
 "use client";
 import { useAppSelector } from "@/store/hooks";
 import React from "react";
-import useCarosoul from "../../hooks/useCarosoul";
+import useCarosoul from "../hooks/useCarosoul";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 
@@ -39,9 +39,9 @@ function SectionOne() {
   );
 }
 
-import { useLandingPageActions } from "../../slice/landingPageSlice";
-import { carosoulNoType } from "../../types";
-import { secOneBoxData } from "../../config";
+import { useLandingPageActions } from "../slice/landingPageSlice";
+import { carosoulNoType } from "../types";
+import { secOneBoxData } from "../config";
 
 function FeaturesName() {
   const imgNumber = useAppSelector(

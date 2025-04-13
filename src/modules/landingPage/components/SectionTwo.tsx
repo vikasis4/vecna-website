@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SlDocs } from "react-icons/sl";
 import { PiPlugsConnectedThin } from "react-icons/pi";
 import { PiMagicWandLight } from "react-icons/pi";
-import { itemDataType } from "../../types";
+import { itemDataType } from "../types";
 
 const {
   home: { sectionTwo: CONST },
