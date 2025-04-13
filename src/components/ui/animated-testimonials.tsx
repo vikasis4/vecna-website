@@ -26,7 +26,7 @@ export const AnimatedTestimonials = ({
 
   const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
-  }, [active]);
+  }, [active, testimonials.length]);
 
   const handlePrev = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);

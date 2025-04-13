@@ -3,9 +3,9 @@ import PricingHome from "@/modules/landingPage/components/Pricings";
 import SectionOne from "@/modules/landingPage/components/SectionOne";
 import SectionTwo from "@/modules/landingPage/components/SectionTwo";
 import Testimonial from "@/modules/landingPage/components/Testimonial";
-import { ComboboxDemo } from "@/packages/Filter";
-import { DefaultMenuDemo } from "@/packages/Menu";
-import TableUser from "@/packages/Table";
+// import { ComboboxDemo } from "@/packages/Filter";
+// import { DefaultMenuDemo } from "@/packages/Menu";
+// import TableUser from "@/packages/Table";
 import React from "react";
 
 function Home() {
